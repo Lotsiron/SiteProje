@@ -1,0 +1,370 @@
+html {
+  overflow-x: hidden; /* aşağıdaki kaydırma barını kaldırma */
+  scroll-padding-top: 9rem;
+  scroll-behavior: smooth;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Manrope&display=swap");
+
+* {
+  font-family: "Manrope", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+:root {
+  --arkaplan: #2e3a50;
+  --onplan: #82ffea;
+  --vurgu: #ffb608;
+  --aksan: #ffb608;
+}
+
+body {
+  background-color: var(--arkaplan);
+  font-size: larger;
+  color: white;
+}
+
+.yazi {
+  font-size: larger;
+  color: rgb(255, 255, 255);
+  margin: 20px;
+  padding: 20px;
+}
+
+
+/*-----   HEADER   ----- */ 
+.header {
+  height: 120px;
+  background-color: var(--vurgu);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10%;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+.header .navbar {
+  margin: 3vh;
+  padding: 2rem;
+}
+
+.header .navbar a {
+  color: black;
+  margin: 0 15px;
+  font-size: large;
+  border-bottom: 3px solid transparent;
+  border-radius: 15%;
+  text-decoration: none;
+}
+
+.header .navbar .active,
+.header .navbar a:hover {
+  border-color: var(--arkaplan);
+  padding-bottom: 5px;
+  box-shadow: 0px 2px 0px 0px #2e3a5035;
+}
+.header .navbar a:hover {
+  opacity: 0.9;
+}
+
+.header .navbar .dropMenu{
+  position: absolute;
+  top: 95%;
+  right: 0px;
+  background-color: var(--vurgu);
+  border-radius: 20px;
+  height: calc(100vh - 9rem);
+  width: 30rem;
+}
+
+.header .buttons a img:hover {
+  opacity: 0.9;
+  transform: scale(1.1);
+}
+.header .buttons .menu-button {
+  display: none;
+}
+/*----    HEADER SON    ----*/
+
+
+/*----   GİRİŞ PORTRE   ----*/
+.ben {
+  min-height: 85vh;
+  background: url(../resimler/Ben.webp) no-repeat;
+  background-size: cover;
+  z-index: 1;
+}
+
+.ben .isim {
+  /* transform: translate(0px , 0px); */
+  font-size: 14vh;
+  color: white;
+}
+.ben .isim .ad {
+  position: absolute;
+  top: 30%;
+  left: 5%;
+  z-index: 2;
+}
+.ben .portre {
+  position: relative;
+  max-width: 600px;
+  bottom: 0%;
+  z-index: 3;
+}
+.ben .portre img {
+  position: relative;
+  max-width: 600px;
+  left: 10%;
+}
+
+.ben .isim .soyad {
+  position: absolute;
+  bottom: -10%;
+  left: 10%;
+  z-index: 4;
+}
+/*----   GİRİŞ SON    ----*/
+
+
+/*----  ŞEHRİM SLİDER  ----*/
+.onceki,
+.sonraki {
+  cursor: pointer;
+  position: relative;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.onceki:hover,
+.sonraki:hover {
+  background-color: rgba(0, 0, 0, 1);
+}
+
+.slide {
+  color: white;
+  font-size: 25px;
+  display: none;
+  align-items: center;
+  padding: 10px;
+}
+
+.kucukler {
+  margin-top: 12px;
+}
+.column {
+  width: 20%;
+}
+.kucukresim {
+  opacity: 0.75;
+}
+.active,.kucukresim:hover {
+  opacity: 1;
+}
+
+.resimIsim {
+  color: white;
+  font-size: 25px;
+}
+/*----  ŞEHRİM SLİDER SON  ----*/
+
+/*----  MİRASIM ----*/
+.btnMirasim{
+  float: right; 
+  position: relative; 
+  top: 20px; right: 20px;
+  background-color: var(--vurgu);
+  padding: 10px;
+  border-radius: 15px;
+}
+.btnMirasim:hover {
+  opacity: 0.9;
+  transform: scale(1.1);
+}
+.mirasimArticle {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #1f2a40;
+  margin-bottom: 30px;
+}
+.mirasimArticle h1 {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+/*---- MİRASIM SON ----*/
+
+/*-----    CV     ----*/
+.cvSection {
+  font-size: larger;
+  color: rgb(255, 255, 255);
+  background-color: #1f2a40;
+  margin: 20px;
+  padding: 20px;
+}
+
+.cvAside {
+  font-size: larger;
+  background-color: #1f2a40;
+  margin: 20px;
+  padding: 20px;
+}
+/*-----   CV SON   ----*/
+
+/*----İlgi Alanlarım ---*/
+
+.ilgiAlan{
+  color: white;
+  background-color: #1f2a40;
+  margin: 20px;
+  padding: 20px;
+}
+.papagan {
+  max-height: 160px; overflow: hidden;
+}
+.CDC {
+  margin: 20px;
+  padding: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+/*---- İLETİŞİM ----*/
+.Ciletisim {
+  background-color: #1f2a40;
+  padding: 30px;
+  border-radius: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+.iletisim {
+  font-size: larger;
+  color: white;
+  margin: 20px;
+  padding: 20px;
+}
+
+
+
+
+
+/*------- İLETİŞİM SON ----*/
+
+/*------ HESAP -------*/
+.kullanıcı {
+  background-color: #1f2a40;
+  font-size: larger;
+  color: white;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 30px;
+  padding: 40px;
+  width: 360px;
+}
+
+.butonlar {
+  margin: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: medium;
+  padding: 7px; 
+  background-color: #ffb608;
+  border-radius: 10px;
+}
+
+
+
+/*------ FOOTER ------*/
+.footer {
+  display: flex;
+  justify-content: center;
+  color: #1f2a40;
+}
+.footer .filetisim {
+  position: relative;
+  left: 30%;
+}
+
+
+footer{
+  background-color: var(--vurgu);
+  margin: 20px;
+  padding: 15px;  
+}
+.footer .iletisim{
+  right: 5px;
+}
+
+
+
+/* responsiveness için */ 
+/* tablet boyutu */
+@media (max-width:991px ) {
+  html{
+    font-size: 85%;
+  }
+}
+
+
+
+
+/* mobil boyutu */
+@media (max-width:768px ) {
+  .header .buttons .menu-button {
+    display: inline-block;
+  }
+  
+  /* Bar menu */
+  #menu {
+    display: none;
+    position: absolute;
+    background-color: var(--vurgu);
+    border-radius: 20px;
+    top: 95%;
+    height: 50vh;
+    width: 150px;
+    right: 20px;
+  }
+  .header .navbar a {
+    display: block;
+    margin: 18px;
+  }
+  .ben .isim {
+    font-size: 10vh;
+  }
+  .ben .portre img {
+    max-width: 100%;
+    left: 0%;
+  }
+}
+
+@media (max-width:580px ) {
+  .ben .isim {
+    font-size: 7vh;
+  }
+  .ben .isim .soyad {
+    bottom: 15%;
+  }
+}

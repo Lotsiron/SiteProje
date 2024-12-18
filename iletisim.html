@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="tr"> <!-- Buu arama motorlarına yardımcı olmak için -->
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AHMET YASİN PEKDEMİR</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="stiller/main.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <a href="./index.html">
+           <img src="resimler/Logo2.png" alt="Ana Ekran" height="100" id="Logo">
+       </a>
+       <nav class="navbar" id="menu">
+           <a href="./index.html">Hakkımda</a>
+           <a href="./iletisim.html" class="active">İletişim</a>
+       </nav>
+       <div class="buttons">
+           <a href="./hesap.html">
+               <img src="resimler/hesap.svg" alt="hesap" height="30">
+           </a>
+           <a href="#" class="menu-button" onclick="menuButonu()">
+               <img src="resimler/bar.svg" alt="bar" height="30">
+           </a>
+       </div>
+   </header>
+   <!-- HEADER END -->
+
+   <!-- FORM -->
+    <form name="formIletisim" id="formIletisim" onsubmit="return false" class="container Ciletisim col-lg-6" ng-app="ngForm" ng-controller="FormKontrol" novalidate> <!-- dahili kontrol kapalı -->
+        <section class="iletisim">
+            <fieldset>
+                <legend> <h1> İletişim Formunu Doldurunuz </h1> </legend>
+                <div class="iadsoyad"> <p> Ad Soyad giriniz </p> 
+                    <input name="iad" id="iad" type="text" placeholder="Adınızı giriniz" ng-model="formData.ad" required><br><br>
+                    <input name="isoyad" id="isoyad" type="text" placeholder="Soyadınızı giriniz" ng-model="formData.soyad" required>
+                </div>
+                <br>
+                <p> Emailinizi giriniz </p> 
+                <input type="email" id="email" ng-Model="email" placeholder="E-posta giriniz" ng-model="formData.email" required><br><br>
+                <select name="il" id="il" ng-model="formData.il" required>
+                    <option disabled selected value> -- Bir İl Seçin -- </option>
+                    <option value="Ankara">Ankara</option>
+                    <option value="Eskişehir">Eskişehir</option>
+                    <option value="İstanbul">İstanbul</option>
+                    <option value="İzmit">İzmit</option>
+                    <option value="Sakarya">Sakarya</option>
+                    <optgroup label="Diğer">
+                        <option value="Yurt İçi">Yurt İçi</option>
+                        <option value="Yurt Dışı">Yurt Dışı</option>
+                </select> <br> <br>
+                <p> Mesajınızı giriniz </p>
+                <textarea name="mesaj" id="mesaj" cols="35" rows="5" ng-model="formData.mesaj" required></textarea>
+            </fieldset>
+            <button class="butonlar" onclick="iGonder()" ng-click="formGonder()" ng-disabled="formIletisim.$invalid" >Gönder</button>
+            <button class="butonlar" onclick="temizleForm()">Temizle</button>
+        </section>
+    </form>
+
+    <!-- FORM END-->
+
+   <!-- FOOTER START-->
+   <footer class="container-fluid d-flex justify-content-center align-items-center">
+    <div class="col-lg-6 offset-5" style="color: black;" > Made by The Man Himself! </div>
+    <div class="col-lg-1">
+        <a href="./iletisim.html">İletişim</a>
+    </div>
+    <!-- FOOTER END-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <script>
+        angular.module('ngForm', [])
+            .controller('FormKontrol', ['$scope', function($scope) {
+                $scope.formData = {};
+    
+                $scope.formGonder = function() {
+                    if ($scope.formIletisim.$valid) {
+                        console.log('Form Gönderilebilir!');
+                        console.log($scope.formData); // Gönderilebilir datanın gösterimi
+                        // Bu verileri istersek kullanabiliriz.  Ben kullanmadım, zamanım yok bugün 21'i
+                    }
+                };
+    
+                $scope.resetForm = function() {
+                    $scope.formData = {};
+                    $scope.formIletisim.$setPristine();
+                    $scope.formIletisim.$setUntouched();
+                };
+            }]);
+    </script>
+
+
+
+    <script src="js/iletisim.js"></script>
+    <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+        integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+        integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+        crossorigin="anonymous"></script>
+</body>
