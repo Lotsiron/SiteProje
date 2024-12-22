@@ -1,0 +1,25 @@
+﻿<div class="kullanıcı">
+    <form action="./js/dogrulama.php" method="post" target="formResponse">
+
+        <h2> Kullanıcı Adı </h2>
+        <input autofocus
+               type="text"
+               placeholder="Kullanıcı Adınızı Giriniz"
+               id="kadi" name="kadi"
+               autocomplete="on"
+               required>
+        <h2> Şifre </h2>
+        <input type="password"
+               placeholder="Şifre giriniz"
+               id="sifre" name="sifre"
+               autocomplete="on"
+               required>
+        <input class="butonlar" type="submit" value="Oturum Aç"></input>
+
+        <iframe name="formResponse"
+                style="background-color: #ffb608;
+                   width: 280px;
+                   height: 60px;
+                   padding: 10px;"></iframe>
+    </form>
+</div>

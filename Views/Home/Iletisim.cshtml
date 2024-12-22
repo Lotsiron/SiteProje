@@ -1,0 +1,33 @@
+
+   <!-- FORM -->
+    <form name="formIletisim" id="formIletisim" onsubmit="return false" class="container Ciletisim col-lg-6" ng-app="ngForm" ng-controller="FormKontrol" novalidate> <!-- dahili kontrol kapalı -->
+        <section class="iletisim">
+            <fieldset>
+                <legend> <h1> İletişim Formunu Doldurunuz </h1> </legend>
+                <div class="iadsoyad"> <p> Ad Soyad giriniz </p> 
+                    <input name="iad" id="iad" type="text" placeholder="Adınızı giriniz" ng-model="formData.ad" required><br><br>
+                    <input name="isoyad" id="isoyad" type="text" placeholder="Soyadınızı giriniz" ng-model="formData.soyad" required>
+                </div>
+                <br>
+                <p> Emailinizi giriniz </p> 
+                <input type="email" id="email" ng-Model="email" placeholder="E-posta giriniz" ng-model="formData.email" required><br><br>
+                <select name="il" id="il" ng-model="formData.il" required>
+                    <option disabled selected value=" "> -- Bir İl Seçin -- </option>
+                    <option value="Ankara">Ankara</option>
+                    <option value="Eskişehir">Eskişehir</option>
+                    <option value="İstanbul">İstanbul</option>
+                    <option value="İzmit">İzmit</option>
+                    <option value="Sakarya">Sakarya</option>
+                    <optgroup label="Diğer">
+                        <option value="Yurt İçi">Yurt İçi</option>
+                        <option value="Yurt Dışı">Yurt Dışı</option>
+                </select> <br> <br>
+                <p> Mesajınızı giriniz </p>
+                <textarea name="mesaj" id="mesaj" cols="35" rows="5" ng-model="formData.mesaj" required></textarea>
+            </fieldset>
+            <button class="butonlar" onclick="iGonder()" ng-click="formGonder()" ng-disabled="formIletisim.$invalid" >Gönder</button>
+            <button class="butonlar" onclick="temizleForm()">Temizle</button>
+        </section>
+    </form>
+
+    <!-- FORM END-->

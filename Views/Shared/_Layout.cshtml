@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - Kuafor Pekdemir </title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebApplication1.styles.css" asp-append-version="true" />
+
+</head>
+<body>
+   
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <a href="#">
+            <img src="~/images/Logo2.png" alt="Ana Ekran" height="100" id="Logo">
+        </a>
+        <nav class="navbar" id="menu">
+            <a href="/Home/Index" class="active">Hakkımda</a>
+            <a href="/Home/Iletisim">İletişim</a>
+        </nav>
+        <div class="buttons">
+            <a href="/Hesap/Index">
+                <img src="~/images/hesap.svg" alt="hesap" height="30">
+            </a>
+            <a href="#" class="menu-button" onclick="menuButonu()">
+                <img src="~/images/bar.svg" alt="bar" height="30">
+            </a>
+        </div>
+    </header>
+    <!-- HEADER SON -->
+
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+
+    <!-- FOOTER START -->
+    <footer class="container-fluid d-flex justify-content-center align-items-center">
+        <div class="col-lg-6 offset-lg-5" style="color: black;"> Made by The Man Himself!</div>
+        <div class="col-lg-1">
+            <a href="/Home/Iletisim">İletişim</a>
+        </div>
+    </footer>
+    <!-- FOOTER END -->
+
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
