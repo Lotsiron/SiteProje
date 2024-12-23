@@ -1,4 +1,23 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿
+function menuButonu() {
+    var menu = document.getElementById("menu");
 
-// Write your JavaScript code.
+    if (menu.style.display === "none") {
+        menu.style.display = "block";
+    } else {
+        menu.style.display = "none";
+    }
+}
+
+// header küçülmesi 
+window.onscroll = function () { scrollFunction() };
+function scrollFunction() {
+    if (document.documentElement.scrollTop > 120) {
+        document.getElementById("header").style.height = "50px";
+        document.getElementById("Logo").style.height = "50px";
+    }
+    else {
+        document.getElementById("header").style.height = "120px";
+        document.getElementById("Logo").style.height = "100px";
+    }
+} 

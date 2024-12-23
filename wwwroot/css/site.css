@@ -25,7 +25,7 @@ html {
 }
 
 :root {
-    --arkaplan: #2e3a50;
+    --arkaplan: #212121;
     --onplan: #82ffea;
     --vurgu: #ffb608;
     --aksan: #ffb608;
@@ -263,14 +263,4 @@ footer {
         max-width: 100%;
         left: 0%;
     }
-}
-
-@media (max-width:580px ) {
-    .ben .isim {
-        font-size: 7vh;
-    }
-
-        .ben .isim .soyad {
-            bottom: 15%;
-        }
 }
