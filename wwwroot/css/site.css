@@ -161,9 +161,6 @@ footer {
     margin-top: 12px;
 }
 
-.column {
-    width: 20%;
-}
 
 .kucukresim {
     opacity: 0.75;
@@ -254,13 +251,49 @@ footer {
         display: block;
         margin: 18px;
     }
-
-    .ben .isim {
-        font-size: 10vh;
-    }
-
-    .ben .portre img {
-        max-width: 100%;
-        left: 0%;
-    }
 }
+
+/* Ana Sayfa Salon Secim */
+.Kadin-Erkek-Sec {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+    display: flex;
+}
+
+.salon-resim {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%; /* Full width for overlap */
+    transition: clip-path 0.5s ease, z-index 0.2s; /* Yumusak gecisler */
+}
+
+    .salon-resim img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    .salon-resim.sol {
+        clip-path: polygon(0 0, 52% 0, 48% 100%, 0 100%);
+        z-index: 1; /* Basta sag resmin altinda */
+    }
+
+        .salon-resim.sol:hover {
+            clip-path: polygon(0 0, 60% 0, 55% 100%, 0 100%);
+            box-shadow: -10px 0 20px rgba(0, 0, 0, 0.5);
+            z-index: 3; /* sag resmin ustunde */
+        }
+
+    .salon-resim.sag {
+        clip-path: polygon(52% 0, 100% 0, 100% 100%, 48% 100%);
+        z-index: 2; /* Basta sol resmin ustunde */
+    }
+
+        .salon-resim.sag:hover {
+            clip-path: polygon(45% 0, 100% 0, 100% 100%, 40% 100%);
+            box-shadow: 10px 0 20px rgba(0, 0, 0, 0.5);
+            z-index: 3; /* Sol resmin ustunde */
+        }

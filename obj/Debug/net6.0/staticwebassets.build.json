@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vbtlgAJtiQrPxIv6RfncgEsm94E+KD/4u+Q4ZJwbUQQ=",
+  "Hash": "lekv4Q1x8vam3Zbz53HS3wRwxLFLtYLmKZTouoTxvMI=",
   "Source": "WebApplication1",
   "BasePath": "_content/WebApplication1",
   "Mode": "Default",
@@ -119,6 +119,23 @@
       "OriginalItemSpec": "wwwroot\\images\\Ben.webp"
     },
     {
+      "Identity": "C:\\Users\\PekPc\\Desktop\\SiteProje\\wwwroot\\images\\ErkekSalon.png",
+      "SourceId": "WebApplication1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PekPc\\Desktop\\SiteProje\\wwwroot\\",
+      "BasePath": "_content/WebApplication1",
+      "RelativePath": "images/ErkekSalon.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ErkekSalon.png"
+    },
+    {
       "Identity": "C:\\Users\\PekPc\\Desktop\\SiteProje\\wwwroot\\images\\hesap.svg",
       "SourceId": "WebApplication1",
       "SourceType": "Discovered",
@@ -134,6 +151,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\hesap.svg"
+    },
+    {
+      "Identity": "C:\\Users\\PekPc\\Desktop\\SiteProje\\wwwroot\\images\\KadinSalon.jpg",
+      "SourceId": "WebApplication1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PekPc\\Desktop\\SiteProje\\wwwroot\\",
+      "BasePath": "_content/WebApplication1",
+      "RelativePath": "images/KadinSalon.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\KadinSalon.jpg"
     },
     {
       "Identity": "C:\\Users\\PekPc\\Desktop\\SiteProje\\wwwroot\\images\\Logo2.png",

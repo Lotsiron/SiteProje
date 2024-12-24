@@ -17,6 +17,14 @@
       "PackagePath": "staticwebassets\\images\\Ben.webp"
     },
     {
+      "Id": "C:\\Users\\PekPc\\Desktop\\SiteProje\\wwwroot\\images\\ErkekSalon.png",
+      "PackagePath": "staticwebassets\\images\\ErkekSalon.png"
+    },
+    {
+      "Id": "C:\\Users\\PekPc\\Desktop\\SiteProje\\wwwroot\\images\\KadinSalon.jpg",
+      "PackagePath": "staticwebassets\\images\\KadinSalon.jpg"
+    },
+    {
       "Id": "C:\\Users\\PekPc\\Desktop\\SiteProje\\wwwroot\\images\\Logo2.png",
       "PackagePath": "staticwebassets\\images\\Logo2.png"
     },

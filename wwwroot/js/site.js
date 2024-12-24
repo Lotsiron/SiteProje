@@ -16,7 +16,7 @@ function scrollFunction() {
         document.getElementById("header").style.height = "50px";
         document.getElementById("Logo").style.height = "50px";
     }
-    else {
+    else if (document.documentElement.scrollTop < 60) {
         document.getElementById("header").style.height = "120px";
         document.getElementById("Logo").style.height = "100px";
     }
