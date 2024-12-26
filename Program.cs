@@ -1,8 +1,20 @@
+﻿using Microsoft.EntityFrameworkCore;
+using WebApplication1.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+// veri tabanına bağlanma
+builder.Services.AddDbContext<KuaforYonetimContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+
+
+
+// kurulum anı
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -2,16 +2,16 @@
 
 @model List< WebApplication1.Models.Salon >
 
-<h1>@(Model.FirstOrDefault()?.Type == "kadin" ? "Kadın Salons" : "Erkek Salons")</h1>
+<h1>@(ViewBag.salonTur == "Kadın" ? "Kadın Salonlar" : "Erkek Salonlar")</h1>
 
 <div class="salons">
-    @foreach (var salon in Model)
+    @foreach (var Salon in Model)
     {
         <div class="salon">
-            <h2>Salon: @salon.ad</h2>
-            <p>Tür: @salon.tur</p>
-            <p>Açılış Saati: @salon.acilis_saati</p>
-            <p>Kapanış Saati: @salon.kapanis_saati</p>
+            <h2>Salon: @Salon.ad</h2>
+            <p>Tür: @Salon.tur</p>
+            <p>Açılış Saati: @Salon.acilis_saati</p>
+            <p>Kapanış Saati: @Salon.kapanis_saati</p>
         </div>
     }
 </div>

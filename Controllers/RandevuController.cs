@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WebApplication1.Models;
 
@@ -7,10 +7,11 @@ namespace WebApplication1.Controllers
     public class RandevuController : Controller
     {
         private readonly ILogger<RandevuController> _logger;
-
-        public RandevuController(ILogger<RandevuController> logger)
+        private readonly KuaforYonetimContext _context;
+        public RandevuController(ILogger<RandevuController> logger, KuaforYonetimContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -19,23 +20,22 @@ namespace WebApplication1.Controllers
         }
         public IActionResult Salonlar(string salonTur)
         {
-            var kuaforler = GetSalonTur(salonTur)
+            var kuaforler = GetSalonTur(salonTur);
+            ViewBag.salonTur = salonTur;
 
-            return View(salons);
+            return View(kuaforler);
         }
 
         // bazı yerlerde salon bazı yerlerde kuafor olarak geçiyor
 
+
+
+        // GetSalonTur için fonksiyon
         private List<Salon> GetSalonTur(string salonTur)
         {
-            using (var dbContext = new ApplicationDbContext())
-            {
-                // Tipine göre (erkek/kadın) kuaforleri getir
-
-                return dbContext.kuaforler
-                                .Where(s => s.Tur == salonTur)
-                                .ToList();
-            }
+            return _context.kuaforler
+                        .Where(s => s.tur == salonTur)
+                        .ToList();
         }
 
 
