@@ -16,12 +16,44 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\PekPc\Desktop\SiteProje
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/PekPc/Desktop/SiteProje/Views/Admin/CalisanYonetimi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ2FsaXNhbllvbmV0aW1pLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PekPc/Desktop/SiteProje/Views/Admin/HizmetYonetimi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSGl6bWV0WW9uZXRpbWkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PekPc/Desktop/SiteProje/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PekPc/Desktop/SiteProje/Views/Admin/Randevular.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmFuZGV2dWxhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PekPc/Desktop/SiteProje/Views/Admin/Salonlar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2Fsb25sYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PekPc/Desktop/SiteProje/Views/AI/HairRecommendation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQUlcSGFpclJlY29tbWVuZGF0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/PekPc/Desktop/SiteProje/Views/CalisanYonetim/CalisanUI.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FsaXNhbllvbmV0aW1cQ2FsaXNhblVJLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/PekPc/Desktop/SiteProje/Views/Hesap/ErisimReddedildi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGVzYXBcRXJpc2ltUmVkZGVkaWxkaS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/PekPc/Desktop/SiteProje/Views/Hesap/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGVzYXBcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PekPc/Desktop/SiteProje/Views/Hesap/Kayit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGVzYXBcS2F5aXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/PekPc/Desktop/SiteProje/Views/Home/Blog.cshtml]
@@ -50,6 +82,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/PekPc/Desktop/SiteProje/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/PekPc/Desktop/SiteProje/Views/Randevu/RandevuOlustur.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFuZGV2dVxSYW5kZXZ1T2x1c3R1ci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/PekPc/Desktop/SiteProje/Views/Randevu/Salonlar.cshtml]

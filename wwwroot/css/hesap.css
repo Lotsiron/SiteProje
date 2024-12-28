@@ -1,0 +1,22 @@
+.card {
+    color: #333;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.card-title {
+    color: #333;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-control:disabled {
+    background-color: #e9ecef;
+}
+
+.btn-primary {
+    width: 100%;
+}

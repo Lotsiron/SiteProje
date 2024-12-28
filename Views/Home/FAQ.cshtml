@@ -1,0 +1,113 @@
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Sıkça Sorulan Sorular</h1>
+
+    <div class="accordion" id="faqAccordion">
+        <!-- Soru 1 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#soru1">
+                    Randevu nasıl alabilirim?
+                </button>
+            </h2>
+            <div id="soru1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Ana sayfada yer alan "Kadın Kuaförü" veya "Erkek Kuaförü" seçeneklerinden size uygun olanı seçerek randevu alabilirsiniz. 
+                    Ardından salon, hizmet ve çalışan seçimi yaparak randevunuzu oluşturabilirsiniz.
+                </div>
+            </div>
+        </div>
+
+        <!-- Soru 2 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#soru2">
+                    Randevumu nasıl iptal edebilirim?
+                </button>
+            </h2>
+            <div id="soru2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Hesabınıza giriş yaptıktan sonra randevularım bölümünden ilgili randevuyu seçerek iptal edebilirsiniz. 
+                    Randevunuzu en geç 24 saat öncesinden iptal etmenizi rica ederiz.
+                </div>
+            </div>
+        </div>
+
+        <!-- Soru 3 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#soru3">
+                    Ödeme seçenekleri nelerdir?
+                </button>
+            </h2>
+            <div id="soru3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Salonlarımızda nakit, kredi kartı ve banka kartı ile ödeme yapabilirsiniz. 
+                    Bazı salonlarımızda taksit imkanı da bulunmaktadır.
+                </div>
+            </div>
+        </div>
+
+        <!-- Soru 4 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#soru4">
+                    Hangi hizmetleri sunuyorsunuz?
+                </button>
+            </h2>
+            <div id="soru4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Saç kesimi, boyama, bakım, manikür, pedikür, cilt bakımı gibi birçok hizmet sunmaktayız. 
+                    Detaylı bilgi için "Hizmetler" sayfamızı ziyaret edebilirsiniz.
+                </div>
+            </div>
+        </div>
+
+        <!-- Soru 5 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#soru5">
+                    Randevu saatine geç kalırsam ne olur?
+                </button>
+            </h2>
+            <div id="soru5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    15 dakikaya kadar olan gecikmeler tolere edilmektedir. 
+                    Daha uzun gecikmeler durumunda randevunuz iptal edilebilir veya müsaitlik durumuna göre ertelenebilir.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <style>
+        .accordion-item {
+            background-color: #1f2a40;
+            border: 1px solid #ffb608;
+            margin-bottom: 10px;
+        }
+
+        .accordion-button {
+            background-color: #ffb608;
+            color: #212121;
+            font-weight: bold;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: #ffb608;
+            color: #212121;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: #ffb608;
+        }
+
+        .accordion-body {
+            color: white;
+            background-color: #1f2a40;
+        }
+
+        .accordion-button::after {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212121'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+        }
+    </style>

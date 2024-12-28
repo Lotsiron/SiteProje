@@ -1,25 +1,55 @@
-﻿<div class="kullanıcı">
-    <form action="./js/dogrulama.php" method="post" target="formResponse">
+﻿<link rel="stylesheet" href="~/css/hesap.css" />
 
-        <h2> Kullanıcı Adı </h2>
-        <input autofocus
-               type="text"
-               placeholder="Kullanıcı Adınızı Giriniz"
-               id="kadi" name="kadi"
-               autocomplete="on"
-               required>
-        <h2> Şifre </h2>
-        <input type="password"
-               placeholder="Şifre giriniz"
-               id="sifre" name="sifre"
-               autocomplete="on"
-               required>
-        <input class="butonlar" type="submit" value="Oturum Aç"></input>
+@{
+    ViewData["Title"] = "Giriş Yap";
+}
 
-        <iframe name="formResponse"
-                style="background-color: #ffb608;
-                   width: 280px;
-                   height: 60px;
-                   padding: 10px;"></iframe>
-    </form>
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title text-center">Giriş Yap</h3>
+                <form id="loginForm">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="sifre" class="form-label">Şifre</label>
+                        <input type="password" class="form-control" id="sifre" name="sifre" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Giriş Yap</button>
+                </form>
+                <div class="text-center mt-3">
+                    <a href="@Url.Action("Kayit", "Hesap")" class="btn btn-link">Hesap Oluştur</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+@section Scripts {
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const response = await fetch('@Url.Action("Login", "Hesap")', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: document.getElementById('email').value,
+                    sifre: document.getElementById('sifre').value
+                })
+            });
+
+            const result = await response.json();
+            if (result.success) {
+                window.location.href = result.redirectUrl;
+            } else {
+                alert(result.message);
+            }
+        });
+    </script>
+}

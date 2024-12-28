@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace WebApplication1.Models
 {
@@ -9,15 +10,12 @@ namespace WebApplication1.Models
         public DbSet<Salon> kuaforler { get; set; }
         public DbSet<Hizmet> hizmetler { get; set; }
         public DbSet<Calisan> calisanlar { get; set; }
-        public DbSet<CalisanHizmet> calisanHizmetler { get; set; }
-        public DbSet<CalisanUygunluk> calisanUygunluklar { get; set; }
+        public DbSet<CalisanHizmet> calisan_hizmetler { get; set; }
+        public DbSet<CalisanUygunluk> calisan_uygunluk { get; set; }
         public DbSet<Randevu> randevular { get; set; }
+        public DbSet<Kullanici> kullanicilar { get; set; }
+        public DbSet<Rol> roller { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<CalisanHizmet>()
-                .HasIndex(ch => new { ch.CalisanId, ch.HizmetId })
-                .IsUnique();
-        }
+        
     }
 }

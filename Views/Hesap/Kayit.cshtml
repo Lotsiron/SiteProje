@@ -1,0 +1,81 @@
+<link rel="stylesheet" href="~/css/hesap.css" />
+
+@{
+    ViewData["Title"] = "Kayıt Ol";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title text-center">Kayıt Ol</h3>
+                <form id="registerForm">
+                    @Html.AntiForgeryToken()
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="sifre" class="form-label">Şifre</label>
+                        <input type="password" class="form-control" id="sifre" name="sifre" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="ad" class="form-label">Ad</label>
+                        <input type="text" class="form-control" id="ad" name="ad" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="soyad" class="form-label">Soyad</label>
+                        <input type="text" class="form-control" id="soyad" name="soyad" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="telefon" class="form-label">Telefon</label>
+                        <input type="tel" class="form-control" id="telefon" name="telefon" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Kayıt Ol</button>
+                </form>
+                <div class="text-center mt-3">
+                    <a href="@Url.Action("Index", "Hesap")" class="btn btn-link">Giriş Yap</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            try {
+                const formData = {
+                    Email: document.getElementById('email').value,
+                    Sifre: document.getElementById('sifre').value,
+                    Ad: document.getElementById('ad').value,
+                    Soyad: document.getElementById('soyad').value,
+                    Telefon: document.getElementById('telefon').value
+                };
+
+                const response = await fetch('@Url.Action("Kayit", "Hesap")', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    alert('Kayıt başarılı! Giriş sayfasına yönlendiriliyorsunuz.');
+                    window.location.href = '@Url.Action("Index", "Hesap")';
+                } else {
+                    alert(result.message || 'Kayıt işlemi başarısız oldu.');
+                }
+            } catch (error) {
+                console.error('Hata:', error);
+                alert('Bir hata oluştu: ' + error.message);
+            }
+        });
+    </script>
+}
+

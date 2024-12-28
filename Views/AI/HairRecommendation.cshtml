@@ -1,0 +1,34 @@
+@{
+    ViewData["Title"] = "AI Saç Önerisi";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card" style="color: black;">
+                <div class="card-header">
+                    <h3 class="text-center">AI Saç Stili Önerisi</h3>
+                </div>
+                <div class="card-body">
+                    <form asp-action="HairRecommendation" asp-controller="AI" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="photoUpload">Fotoğrafınızı Yükleyin</label>
+                            <input type="file" class="form-control-file" id="photoUpload" name="photo" accept="image/*" required>
+                        </div>
+                        <div class="text-center mt-3">
+                            <button type="submit" class="btn btn-primary">Öneri Al</button>
+                        </div>
+                    </form>
+
+                    @if (ViewBag.Recommendation != null)
+                    {
+                        <div class="mt-4">
+                            <h4>AI Önerisi:</h4>
+                            <p>@ViewBag.Recommendation</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

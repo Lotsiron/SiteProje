@@ -12,11 +12,12 @@ function menuButonu() {
 // header küçülmesi 
 window.onscroll = function () { scrollFunction() };
 function scrollFunction() {
-    if (document.documentElement.scrollTop > 120) {
+    if (document.documentElement.scrollTop > 70) {
         document.getElementById("header").style.height = "50px";
         document.getElementById("Logo").style.height = "50px";
     }
-    else if (document.documentElement.scrollTop < 60) {
+    else if (document.documentElement.scrollTop < 20) 
+    {
         document.getElementById("header").style.height = "120px";
         document.getElementById("Logo").style.height = "100px";
     }

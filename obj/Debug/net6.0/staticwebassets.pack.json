@@ -5,6 +5,22 @@
       "PackagePath": "staticwebassets\\WebApplication1.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\PekPc\\Desktop\\SiteProje\\wwwroot\\css\\admin.css",
+      "PackagePath": "staticwebassets\\css\\admin.css"
+    },
+    {
+      "Id": "C:\\Users\\PekPc\\Desktop\\SiteProje\\wwwroot\\css\\hesap.css",
+      "PackagePath": "staticwebassets\\css\\hesap.css"
+    },
+    {
+      "Id": "C:\\Users\\PekPc\\Desktop\\SiteProje\\wwwroot\\css\\randevu.css",
+      "PackagePath": "staticwebassets\\css\\randevu.css"
+    },
+    {
+      "Id": "C:\\Users\\PekPc\\Desktop\\SiteProje\\wwwroot\\css\\salonlar.css",
+      "PackagePath": "staticwebassets\\css\\salonlar.css"
+    },
+    {
       "Id": "C:\\Users\\PekPc\\Desktop\\SiteProje\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -33,12 +49,32 @@
       "PackagePath": "staticwebassets\\images\\bar.svg"
     },
     {
+      "Id": "C:\\Users\\PekPc\\Desktop\\SiteProje\\wwwroot\\images\\cilt-hizmet.jpg",
+      "PackagePath": "staticwebassets\\images\\cilt-hizmet.jpg"
+    },
+    {
       "Id": "C:\\Users\\PekPc\\Desktop\\SiteProje\\wwwroot\\images\\hesap.svg",
       "PackagePath": "staticwebassets\\images\\hesap.svg"
     },
     {
       "Id": "C:\\Users\\PekPc\\Desktop\\SiteProje\\wwwroot\\images\\placeholder.png",
       "PackagePath": "staticwebassets\\images\\placeholder.png"
+    },
+    {
+      "Id": "C:\\Users\\PekPc\\Desktop\\SiteProje\\wwwroot\\images\\sac-hizmet.webp",
+      "PackagePath": "staticwebassets\\images\\sac-hizmet.webp"
+    },
+    {
+      "Id": "C:\\Users\\PekPc\\Desktop\\SiteProje\\wwwroot\\images\\tirnak-hizmet.jpg",
+      "PackagePath": "staticwebassets\\images\\tirnak-hizmet.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PekPc\\Desktop\\SiteProje\\wwwroot\\js\\admin-dashboard.js",
+      "PackagePath": "staticwebassets\\js\\admin-dashboard.js"
+    },
+    {
+      "Id": "C:\\Users\\PekPc\\Desktop\\SiteProje\\wwwroot\\js\\salonlar.js",
+      "PackagePath": "staticwebassets\\js\\salonlar.js"
     },
     {
       "Id": "C:\\Users\\PekPc\\Desktop\\SiteProje\\wwwroot\\js\\site.js",

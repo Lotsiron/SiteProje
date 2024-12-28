@@ -1,0 +1,113 @@
+@model List<WebApplication1.Models.Randevu>
+@Html.AntiForgeryToken() 
+
+<div class="container-fluid">
+    <h1 class="h3 mb-4 text-gray-800">Randevu Yönetimi</h1>
+
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Tarih</th>
+                            <th>Müşteri</th>
+                            <th>Telefon</th>
+                            <th>Salon</th>
+                            <th>Çalışan</th>
+                            <th>Hizmet</th>
+                            <th>Saat</th>
+                            <th>Fiyat</th>
+                            <th>Durum</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var randevu in Model)
+                        {
+                            <tr>
+                                <td>@randevu.tarih.ToString("dd/MM/yyyy")</td>
+                                <td>@randevu.musteri_adi</td>
+                                <td>@randevu.telefon</td>
+                                <td>@randevu.Salon.ad</td>
+                                <td>@randevu.Calisan.Ad</td>
+                                <td>@randevu.Hizmet.Ad</td>
+                                <td>@randevu.baslangic_saati.Hours:@randevu.baslangic_saati.Minutes - @randevu.bitis_saati.Hours:@randevu.bitis_saati.Minutes</td>
+                                <td>@randevu.fiyat ₺</td>
+                                <td>
+                                    <span class="badge @GetStatusBadgeClass(randevu.Durum)">
+                                        @randevu.Durum
+                                    </span>
+                                </td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <button type="button" 
+                                                class="btn btn-success btn-sm"
+                                                onclick="updateRandevuDurum(@randevu.id, 'Kabul')">
+                                            Kabul
+                                        </button>
+                                        <button type="button" 
+                                                class="btn btn-danger btn-sm"
+                                                onclick="updateRandevuDurum(@randevu.id, 'Red')">
+                                            Red
+                                        </button>
+                                        <button type="button" 
+                                                class="btn btn-warning btn-sm"
+                                                onclick="updateRandevuDurum(@randevu.id, 'Beklemede')">
+                                            Beklemede
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@functions {
+    string GetStatusBadgeClass(string status)
+    {
+        return status switch
+        {
+            "Kabul" => "badge-success",
+            "Red" => "badge-danger",
+            "Beklemede" => "badge-warning",
+            _ => "badge-secondary"
+        };
+    }
+}
+
+@section Scripts {
+    <script>
+        function updateRandevuDurum(randevuId, durum) {
+            const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+
+            fetch('/Admin/RandevuDurumGuncelle', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'RequestVerificationToken': token
+                },
+                body: JSON.stringify({
+                    randevuId: randevuId,
+                    durum: durum
+                })
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    location.reload();
+                } else {
+                    alert('Hata: ' + result.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Bir hata oluştu: ' + error);
+            });
+        }
+    </script>
+}

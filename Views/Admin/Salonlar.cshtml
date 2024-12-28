@@ -1,0 +1,36 @@
+@model List<Salon>
+@{
+    ViewData["Title"] = "Salonlar";
+}
+
+<div class="container-fluid">
+    <h1 class="h3 mb-4 text-gray-800">Salonlar</h1>
+
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Salon Adı</th>
+                            <th>Tür</th>
+                            <th>Çalışma Saatleri</th>
+                            <th>Çalışan Sayısı</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var salon in Model)
+                        {
+                            <tr>
+                                <td>@salon.ad</td>
+                                <td>@salon.tur</td>
+                                <td>@salon.acilis_saati.Hours:@salon.acilis_saati.Minutes - @salon.kapanis_saati.Hours:@salon.kapanis_saati.Minutes</td>
+                                <td>@(salon.calisanlar?.Count ?? 0)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div> 

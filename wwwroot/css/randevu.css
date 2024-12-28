@@ -1,0 +1,39 @@
+.card {
+    color: #333;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.card-title {
+    color: #333;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-control:disabled {
+    background-color: #e9ecef;
+}
+
+.btn-primary {
+    width: 100%;
+}
+
+.time-slot {
+    padding: 8px;
+    margin: 4px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.time-slot:hover {
+    background-color: #f8f9fa;
+}
+
+.time-slot.selected {
+    background-color: #007bff;
+    color: white;
+} 

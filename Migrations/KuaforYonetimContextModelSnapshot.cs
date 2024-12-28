@@ -26,45 +26,49 @@ namespace WebApplication1.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Ad")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
+                        .HasColumnType("character varying(100)")
+                        .HasColumnName("ad");
 
                     b.Property<int>("KuaforId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("SalonId")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("kuafor_id");
 
                     b.Property<string>("Uzmanlik")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("text")
+                        .HasColumnName("uzmanlik");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SalonId");
+                    b.HasIndex("KuaforId");
 
-                    b.ToTable("Calisanlar");
+                    b.ToTable("calisanlar");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.CalisanHizmet", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<int>("CalisanId")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("calisan_id");
 
                     b.Property<int>("HizmetId")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("hizmet_id");
 
                     b.HasKey("Id");
 
@@ -73,145 +77,277 @@ namespace WebApplication1.Migrations
                     b.HasIndex("CalisanId", "HizmetId")
                         .IsUnique();
 
-                    b.ToTable("CalisanHizmetler");
+                    b.ToTable("calisan_hizmetler");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.CalisanUygunluk", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<TimeSpan>("BaslangicSaati")
-                        .HasColumnType("interval");
+                        .HasColumnType("interval")
+                        .HasColumnName("baslangic_saati");
 
                     b.Property<TimeSpan>("BitisSaati")
-                        .HasColumnType("interval");
+                        .HasColumnType("interval")
+                        .HasColumnName("bitis_saati");
 
                     b.Property<int>("CalisanId")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("calisan_id");
 
                     b.Property<DateTime?>("GecerlilikTarihiBas")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone")
+                        .HasColumnName("gecerlilik_tarihi_bas");
 
                     b.Property<DateTime?>("GecerlilikTarihiSon")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone")
+                        .HasColumnName("gecerlilik_tarihi_son");
 
                     b.Property<string>("Gun")
                         .IsRequired()
                         .HasMaxLength(15)
-                        .HasColumnType("character varying(15)");
+                        .HasColumnType("character varying(15)")
+                        .HasColumnName("gun");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CalisanId");
 
-                    b.ToTable("CalisanUygunluklar");
+                    b.ToTable("calisan_uygunluk");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.Hizmet", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Ad")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
+                        .HasColumnType("character varying(100)")
+                        .HasColumnName("ad");
 
                     b.Property<decimal>("Fiyat")
-                        .HasColumnType("numeric");
+                        .HasColumnType("numeric")
+                        .HasColumnName("fiyat");
 
                     b.Property<int>("Sure")
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("sure");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Hizmetler");
+                    b.ToTable("hizmetler");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.Kullanici", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Ad")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)")
+                        .HasColumnName("ad");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)")
+                        .HasColumnName("email");
+
+                    b.Property<DateTime>("OlusmaTarihi")
+                        .HasColumnType("timestamp without time zone")
+                        .HasColumnName("olusturma_tarihi");
+
+                    b.Property<int>("RolId")
+                        .HasColumnType("integer")
+                        .HasColumnName("rol_id");
+
+                    b.Property<string>("Sifre")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)")
+                        .HasColumnName("sifre");
+
+                    b.Property<string>("Soyad")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)")
+                        .HasColumnName("soyad");
+
+                    b.Property<string>("Telefon")
+                        .IsRequired()
+                        .HasMaxLength(15)
+                        .HasColumnType("character varying(15)")
+                        .HasColumnName("telefon");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RolId");
+
+                    b.ToTable("kullanicilar");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Ad = "Admin",
+                            Email = "G221210075@sakarya.edu.tr",
+                            OlusmaTarihi = new DateTime(2024, 12, 28, 7, 27, 2, 334, DateTimeKind.Local).AddTicks(5548),
+                            RolId = 1,
+                            Sifre = "sau",
+                            Soyad = "Pekdemir",
+                            Telefon = "551-086-9404"
+                        });
                 });
 
             modelBuilder.Entity("WebApplication1.Models.Randevu", b =>
                 {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
+
+                    b.Property<TimeSpan>("baslangic_saati")
+                        .HasColumnType("interval")
+                        .HasColumnName("baslangic_saati");
+
+                    b.Property<TimeSpan>("bitis_saati")
+                        .HasColumnType("interval")
+                        .HasColumnName("bitis_saati");
+
+                    b.Property<int>("calisan_id")
+                        .HasColumnType("integer")
+                        .HasColumnName("calisan_id");
+
+                    b.Property<decimal>("fiyat")
+                        .HasColumnType("numeric")
+                        .HasColumnName("fiyat");
+
+                    b.Property<int>("hizmet_id")
+                        .HasColumnType("integer")
+                        .HasColumnName("hizmet_id");
+
+                    b.Property<int>("kuafor_id")
+                        .HasColumnType("integer")
+                        .HasColumnName("kuafor_id");
+
+                    b.Property<string>("musteri_adi")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)")
+                        .HasColumnName("musteri_adi");
+
+                    b.Property<DateTime>("tarih")
+                        .HasColumnType("timestamp without time zone")
+                        .HasColumnName("tarih");
+
+                    b.Property<string>("telefon")
+                        .IsRequired()
+                        .HasMaxLength(15)
+                        .HasColumnType("character varying(15)")
+                        .HasColumnName("telefon");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("calisan_id");
+
+                    b.HasIndex("hizmet_id");
+
+                    b.HasIndex("kuafor_id");
+
+                    b.ToTable("randevular");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.Rol", b =>
+                {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<TimeSpan>("BaslangicSaati")
-                        .HasColumnType("interval");
-
-                    b.Property<TimeSpan>("BitisSaati")
-                        .HasColumnType("interval");
-
-                    b.Property<int>("CalisanId")
-                        .HasColumnType("integer");
-
-                    b.Property<decimal>("Fiyat")
-                        .HasColumnType("numeric");
-
-                    b.Property<int>("HizmetId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("KuaforId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("SalonId")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime>("Tarih")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<string>("Ad")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)")
+                        .HasColumnName("ad");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CalisanId");
+                    b.ToTable("roller");
 
-                    b.HasIndex("HizmetId");
-
-                    b.HasIndex("SalonId");
-
-                    b.ToTable("Randevular");
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Ad = "Admin"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Ad = "User"
+                        });
                 });
 
             modelBuilder.Entity("WebApplication1.Models.Salon", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
                     b.Property<TimeSpan>("acilis_saati")
-                        .HasColumnType("interval");
+                        .HasColumnType("interval")
+                        .HasColumnName("acilis_saati");
 
                     b.Property<string>("ad")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
+                        .HasColumnType("character varying(100)")
+                        .HasColumnName("ad");
 
                     b.Property<TimeSpan>("kapanis_saati")
-                        .HasColumnType("interval");
+                        .HasColumnType("interval")
+                        .HasColumnName("kapanis_saati");
 
                     b.Property<string>("tur")
                         .IsRequired()
                         .HasMaxLength(10)
-                        .HasColumnType("character varying(10)");
+                        .HasColumnType("character varying(10)")
+                        .HasColumnName("tur");
 
-                    b.HasKey("Id");
+                    b.HasKey("id");
 
-                    b.ToTable("Kuaforler");
+                    b.ToTable("kuaforler");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.Calisan", b =>
                 {
                     b.HasOne("WebApplication1.Models.Salon", "Salon")
-                        .WithMany("Calisanlar")
-                        .HasForeignKey("SalonId")
+                        .WithMany("calisanlar")
+                        .HasForeignKey("KuaforId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -248,23 +384,34 @@ namespace WebApplication1.Migrations
                     b.Navigation("Calisan");
                 });
 
+            modelBuilder.Entity("WebApplication1.Models.Kullanici", b =>
+                {
+                    b.HasOne("WebApplication1.Models.Rol", "Rol")
+                        .WithMany("Kullanicilar")
+                        .HasForeignKey("RolId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Rol");
+                });
+
             modelBuilder.Entity("WebApplication1.Models.Randevu", b =>
                 {
                     b.HasOne("WebApplication1.Models.Calisan", "Calisan")
                         .WithMany()
-                        .HasForeignKey("CalisanId")
+                        .HasForeignKey("calisan_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("WebApplication1.Models.Hizmet", "Hizmet")
                         .WithMany()
-                        .HasForeignKey("HizmetId")
+                        .HasForeignKey("hizmet_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("WebApplication1.Models.Salon", "Salon")
                         .WithMany()
-                        .HasForeignKey("SalonId")
+                        .HasForeignKey("kuafor_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -282,9 +429,14 @@ namespace WebApplication1.Migrations
                     b.Navigation("CalisanUygunluklar");
                 });
 
+            modelBuilder.Entity("WebApplication1.Models.Rol", b =>
+                {
+                    b.Navigation("Kullanicilar");
+                });
+
             modelBuilder.Entity("WebApplication1.Models.Salon", b =>
                 {
-                    b.Navigation("Calisanlar");
+                    b.Navigation("calisanlar");
                 });
 #pragma warning restore 612, 618
         }

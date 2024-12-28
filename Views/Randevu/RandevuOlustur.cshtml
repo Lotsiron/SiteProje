@@ -1,0 +1,136 @@
+@model RandevuOlusturViewModel
+
+<link rel="stylesheet" href="~/css/randevu.css" />
+
+<div class="container mt-4">
+    <h2>Randevu Oluştur</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">@Model.Calisan.Ad</h5>
+                    <p class="card-text">Seçilen Hizmet: @Model.Hizmet.Ad</p>
+                    <p class="card-text">Süre: @Model.Hizmet.Sure dakika</p>
+                    <p class="card-text">Fiyat: @Model.Hizmet.Fiyat₺</p>
+
+                    <form id="randevuForm">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" id="salonId" value="@Model.Calisan.KuaforId" />
+                        <input type="hidden" id="calisanId" value="@Model.Calisan.Id" />
+                        <input type="hidden" id="hizmetId" value="@Model.Hizmet.Id" />
+
+                        <div class="form-group">
+                            <label for="musteri_adi">Adınız Soyadınız</label>
+                            <input type="text" class="form-control" id="musteri_adi" required maxlength="100">
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <label for="telefon">Telefon Numaranız</label>
+                            <input type="tel" 
+                                   class="form-control" 
+                                   id="telefon" 
+                                   required 
+                                   maxlength="15"
+                                   placeholder="555-333-4444"
+                                   oninput="this.value = this.value.replace(/[^0-9-]/g, '')">
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <label for="tarih">Tarih</label>
+                            <input type="date" class="form-control" id="tarih" required 
+                                   min="@DateTime.Today.ToString("yyyy-MM-dd")" />
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <label for="saat">Saat</label>
+                            <select class="form-control" id="saat" required disabled>
+                                <option value="">Önce tarih seçiniz</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary mt-3">Randevu Oluştur</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById('tarih').addEventListener('change', function() {
+            const tarih = this.value;
+            const calisanId = document.getElementById('calisanId').value;
+            const saatSelect = document.getElementById('saat');
+            
+            saatSelect.disabled = true;
+            saatSelect.innerHTML = '<option value="">Yükleniyor...</option>';
+
+            fetch(`/Randevu/GetUygunSaatler?calisanId=${calisanId}&tarih=${tarih}`)
+                .then(response => response.json())
+                .then(saatler => {
+                    saatSelect.innerHTML = '<option value="">Saat seçiniz</option>';
+                    saatler.forEach(saat => {
+                        const option = document.createElement('option');
+                        option.value = saat;
+                        option.textContent = saat.substring(0, 5);
+                        saatSelect.appendChild(option);
+                    });
+                    saatSelect.disabled = false;
+                });
+        });
+
+        document.getElementById('randevuForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                kuafor_id: parseInt(document.getElementById('salonId').value),
+                calisan_id: parseInt(document.getElementById('calisanId').value),
+                hizmet_id: parseInt(document.getElementById('hizmetId').value),
+                musteri_adi: document.getElementById('musteri_adi').value,
+                telefon: document.getElementById('telefon').value,
+                tarih: document.getElementById('tarih').value,
+                baslangic_saati: document.getElementById('saat').value
+            };
+
+            try {
+                const response = await fetch('/Randevu/RandevuOlustur', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const result = await response.json();
+                if (result.success) {
+                    alert('Randevunuz başarıyla oluşturuldu!');
+                    window.location.href = '/';
+                } else {
+                    alert('Hata: ' + result.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Randevu oluşturulurken bir hata oluştu: ' + error.message);
+            }
+        });
+
+        function formatPhoneNumber(value) {
+            const numbers = value.replace(/[^\d]/g, '');
+            if (numbers.length === 10) {
+                return numbers.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
+            }
+            return value;
+        }
+
+        document.getElementById('telefon').addEventListener('input', function(e) {
+            const formattedNumber = formatPhoneNumber(e.target.value);
+            e.target.value = formattedNumber;
+        });
+    </script>
+} 

@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/WebApplication1.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -23,14 +25,37 @@
             <img src="~/images/Logo2.png" alt="Ana Ekran" height="100" id="Logo">
         </a>
         <nav class="navbar" id="menu">
-            <a href="/Home/Index" class="@(ViewContext.RouteData.Values["action"].ToString() == "Index" ? "active" : "")"  id="anasayfa">Ana Sayfa</a>
-            <a href="/Home/Iletisim" class="@(ViewContext.RouteData.Values["action"].ToString() == "Iletisim" ? "active" : "")"  id="iletisim">İletişim</a>
+            <a href="/Home/Index" class="@(ViewContext.RouteData.Values["action"].ToString() == "Index" ? "active" : "")" id="anasayfa">Ana Sayfa</a>
+            <a href="/Home/Hizmetler" class="@(ViewContext.RouteData.Values["action"].ToString() == "Hizmetler" ? "active" : "")" id="hizmetler">Hizmetler</a>
+            <a href="/Home/Galeri" class="@(ViewContext.RouteData.Values["action"].ToString() == "Galeri" ? "active" : "")" id="galeri">Galeri</a>
+            <a href="/Home/Blog" class="@(ViewContext.RouteData.Values["action"].ToString() == "Blog" ? "active" : "")" id="blog">Blog</a>
+            <a href="/Home/FAQ" class="@(ViewContext.RouteData.Values["action"].ToString() == "FAQ" ? "active" : "")" id="faq">SSS</a>
+            <a href="/Home/Iletisim" class="@(ViewContext.RouteData.Values["action"].ToString() == "Iletisim" ? "active" : "")" id="iletisim">İletişim</a>
+            <a href="/AI/HairRecommendation" class="@(ViewContext.RouteData.Values["action"].ToString() == "HairRecommendation" ? "active" : "")" id="ai">AI Saç Önerisi</a>
         </nav>
-        <div class="buttons">
-            <a href="/Hesap/Index">
-                <img src="~/images/hesap.svg" alt="hesap" width="100" height="30">
+        <div class="buttons d-flex align-items-center">
+            <a href="/Hesap/Index" class="me-3">
+                <img src="~/images/hesap.svg" alt="hesap" width="30" height="30">
             </a>
-            <a href="#" class="menu-button" onclick="menuButonu()">
+            
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="d-flex align-items-center">
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a href="@Url.Action("Index", "Admin")" class="text-dark text-decoration-none me-2">@User.Identity.Name</a>
+                    }
+                    else
+                    {
+                        <span class="me-2">@User.Identity.Name</span>
+                    }
+                    <form class="m-0" asp-controller="Hesap" asp-action="Logout" method="post">
+                        <button type="submit" class="btn btn-sm btn-outline-dark">Çıkış</button>
+                    </form>
+                </div>
+            }
+            
+            <a href="#" class="menu-button ms-3" onclick="menuButonu()">
                 <img src="~/images/bar.svg" alt="bar" height="30">
             </a>
         </div>
@@ -58,5 +83,13 @@
     <!-- FOOTER END -->
 
     @await RenderSectionAsync("Scripts", required: false)
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div>
+            Current Role: @User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value
+        </div>
+    }
+
 </body>
 </html>

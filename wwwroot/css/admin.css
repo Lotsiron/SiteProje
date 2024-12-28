@@ -1,0 +1,175 @@
+.badge {
+    padding: 8px 12px;
+    font-size: 0.9em;
+}
+
+.badge-success {
+    background-color: #28a745;
+    color: white;
+}
+
+.badge-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.badge-warning {
+    background-color: #ffc107;
+    color: black;
+}
+
+.btn-group .btn {
+    margin: 0 2px;
+}
+
+.card {
+    margin-bottom: 1.5rem;
+}
+
+.chart-container {
+    position: relative;
+    height: 300px;
+    width: 100%;
+}
+
+#performansChart {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.table-responsive {
+    margin-top: 1rem;
+}
+
+.form-control-sm {
+    display: inline-block;
+    width: auto;
+    margin-right: 0.5rem;
+}
+
+.list-group-horizontal .list-group-item {
+    margin: 0 5px;
+    border-radius: 4px !important;
+    transition: all 0.3s ease;
+}
+
+.list-group-horizontal .list-group-item:hover {
+    background-color: #4e73df;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.list-group-horizontal .list-group-item i {
+    margin-right: 8px;
+}
+
+/* Ana başlık için */
+.container-fluid h1 {
+    text-align: center;
+    margin: 20px 0;
+    padding: 15px;
+    border: 2px solid #ffc107;
+    border-radius: 8px;
+}
+
+/* İstatistik kartları için */
+.row .col-xl-3 .card {
+    margin: 15px;
+    border: 2px solid #ffc107;
+    border-radius: 8px;
+}
+
+/* Yönetim menüsü için */
+.list-group-horizontal {
+    margin: 20px 0;
+    padding: 15px;
+    border: 2px solid #ffc107;
+    border-radius: 8px;
+}
+
+/* Salon istatistikleri tablosu için */
+.card {
+    margin: 20px 0;
+    border: 2px solid #ffc107 !important;
+    border-radius: 8px !important;
+}
+
+/* Tablo başlıkları için */
+.card-header {
+    background-color: rgba(255, 193, 7, 0.1) !important;
+    border-bottom: 2px solid #ffc107 !important;
+}
+
+/* Tüm kartlar arasına boşluk */
+.row > div {
+    margin-bottom: 20px;
+}
+
+/* Tabloların içindeki boşluklar */
+.card-body {
+    padding: 20px;
+}
+
+/* Tablo responsive container */
+.table-responsive {
+    margin: 15px 0;
+}
+
+/* Form elemanları için */
+.form-control-sm {
+    margin: 5px;
+    border: 1px solid #ffc107;
+}
+
+/* Filtreleme butonları için */
+.btn-primary {
+    margin: 5px;
+    border: 1px solid #ffc107;
+}
+
+/* Kartların arka planı için biraz daha belirgin sarı */
+.card {
+    background-color: #fffbeb !important;
+}
+
+/* Tablo başlıkları için daha belirgin ton */
+.card-header {
+    background-color: #fff8e1 !important;
+    border-bottom: 2px solid #ffc107 !important;
+}
+
+/* Tablo satırları için alternatif renk */
+.table-bordered tbody tr:nth-child(even) {
+    background-color: #fffdf7;
+}
+
+.table-bordered tbody tr:nth-child(odd) {
+    background-color: #fff8e1;
+}
+
+/* Hizmet yönetimi tablosu için */
+.table td {
+    vertical-align: middle;
+}
+
+/* Modal için */
+.modal-content {
+    color: black;
+    background-color: #fffbeb;
+    border: 2px solid #ffc107;
+}
+
+.modal-header {
+    background-color: #fff8e1;
+    border-bottom: 2px solid #ffc107;
+}
+
+.modal-footer {
+    border-top: 2px solid #ffc107;
+}
+
+/* Form elemanları için */
+.form-control:focus {
+    border-color: #ffc107;
+    box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25);
+} 

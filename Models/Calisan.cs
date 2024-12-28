@@ -3,19 +3,24 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WebApplication1.Models
 {
+    [Table("calisanlar")]
     public class Calisan
     {
         [Key]
+        [Column("id")]
         public int Id { get; set; }
 
         [Required]
         [MaxLength(100)]
+        [Column("ad")]
         public string Ad { get; set; }
 
-        public string Uzmanlik { get; set; }
+        [Column("uzmanlik")]
+        public string? Uzmanlik { get; set; }
 
         [Required]
-        [ForeignKey("Kuafor")]
+        [ForeignKey("Salon")]
+        [Column("kuafor_id")]
         public int KuaforId { get; set; }
 
         public Salon Salon { get; set; }
